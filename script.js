@@ -15,6 +15,12 @@ async function getWeather() {
 
         const response = await fetch(url);
         const data = await response.json();
+        
+
+        if (data.cod == "404") {
+            alert("City not found");
+            return;
+        }
         const weatherMain = data.weather[0].main.toLowerCase();
 
 const body = document.body;
@@ -46,11 +52,6 @@ if (temp > 35) {
 else if (temp < 10) {
     document.querySelector(".weather-card").style.boxShadow = "0 0 30px cyan";
 }
-
-        if (data.cod == "404") {
-            alert("City not found");
-            return;
-        }
 
         document.getElementById("cityName").innerText =
             `${data.name}, ${data.sys.country}`;
