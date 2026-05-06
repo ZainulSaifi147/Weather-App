@@ -48,7 +48,22 @@ else if (weatherMain.includes("thunderstorm")) {
 else if (weatherMain.includes("mist") || weatherMain.includes("haze")) {
     body.style.background = "url('https://images.unsplash.com/photo-1487621116730-5d248087c724?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat";
 }
+// Wind effect
+if (data.wind.speed > 10) {
+    document.body.style.animation = "shake 0.5s infinite";
+}
 
+// Hot weather effect
+if (data.main.temp > 35) {
+    body.style.filter = "brightness(1.1) saturate(1.3)";
+    document.querySelector(".weather-card").style.boxShadow = "0 0 40px red";
+}
+
+// Cold weather effect
+else if (data.main.temp < 10) {
+    body.style.filter = "brightness(0.9) hue-rotate(180deg)";
+    document.querySelector(".weather-card").style.boxShadow = "0 0 40px cyan";
+}
 const temp = data.main.temp;
 
 if (temp > 35) {
