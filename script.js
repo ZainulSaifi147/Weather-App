@@ -15,6 +15,37 @@ async function getWeather() {
 
         const response = await fetch(url);
         const data = await response.json();
+        const weatherMain = data.weather[0].main.toLowerCase();
+
+const body = document.body;
+
+if (weatherMain.includes("rain")) {
+    body.style.background = "url('https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat";
+}
+else if (weatherMain.includes("cloud")) {
+    body.style.background = "url('https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat";
+}
+else if (weatherMain.includes("clear")) {
+    body.style.background = "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat";
+}
+else if (weatherMain.includes("snow")) {
+    body.style.background = "url('https://images.unsplash.com/photo-1483664852095-d6cc6870702d?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat";
+}
+else if (weatherMain.includes("thunderstorm")) {
+    body.style.background = "url('https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat";
+}
+else if (weatherMain.includes("mist") || weatherMain.includes("haze")) {
+    body.style.background = "url('https://images.unsplash.com/photo-1487621167305-5d248087c724?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat";
+}
+
+const temp = data.main.temp;
+
+if (temp > 35) {
+    document.querySelector(".weather-card").style.boxShadow = "0 0 30px red";
+}
+else if (temp < 10) {
+    document.querySelector(".weather-card").style.boxShadow = "0 0 30px cyan";
+}
 
         if (data.cod == "404") {
             alert("City not found");
