@@ -10,4 +10,4 @@ Modern weather application using HTML, CSS, and JavaScript.
 
 ## Screenshot
 
-![Weather App Screenshot](https://github.com/ZainulSaifi147/Weather-App/blob/main/image(17).png)
+![Weather App Screenshot](./Screenshot%202026-05-15%20120500.png)
